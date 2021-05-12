@@ -1,8 +1,12 @@
-import './App.css';
-import Login from './Components/loginPage';
-import { createStore, combineReducers, applyMiddleware } from 'redux';
-import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
-import { Provider } from 'react-redux';
+import "./App.css";
+import { Login } from "./Components/LoginPage";
+import { createStore, combineReducers, applyMiddleware } from "redux";
+
+import { Provider } from "react-redux";
+
+import { Main } from "./Components/mainAppScreen";
+
+import { login } from "./Redux/login";
 
 // dont need yet... only when doing api call.. import thunk from "redux-thunk"
 
@@ -10,19 +14,13 @@ function App() {
   return (
     <>
       <Provider store={store}>
-        <Router>
-          <Switch>
-            <Route path='/login'>
-              <Login />
-            </Route>
-          </Switch>
-        </Router>
+        <Main />
       </Provider>
     </>
   );
 }
 
-const rootReducer = combineReducers({});
+const rootReducer = combineReducers({ login });
 
-const store = createStore(rootReducer)
+const store = createStore(rootReducer);
 export default App;

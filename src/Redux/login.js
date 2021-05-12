@@ -1,8 +1,8 @@
-const initialState = { username: '', password: '', signin: false };
+const initialState = { username: "", password: "", signin: false };
 
-export const logIn = (state = initialState, action) => {
+export const login = (state = initialState, action) => {
   switch (action.type) {
-    case 'SIGNIN':
+    case "SIGNIN":
       return {
         username: action.payload.username,
         password: action.payload.password,

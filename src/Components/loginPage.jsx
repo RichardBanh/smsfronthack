@@ -1,9 +1,6 @@
-import React, { Component } from 'react'
+import React, { Component } from "react";
+import { useSelector } from "react-redux";
 
 export const Login = () => {
-    return (
-        <div>
-            
-        </div>
-    )
-}
+  return <div>Login</div>;
+};
