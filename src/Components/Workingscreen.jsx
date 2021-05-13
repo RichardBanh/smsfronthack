@@ -1,4 +1,10 @@
 import React, { Component } from "react";
 export const WorkingScreen = () => {
-  return <div>bloop</div>;
+  return (
+    <div className="workingWrapper">
+      <menu className="menublk">
+        <div>ICON</div>
+      </menu>
+    </div>
+  );
 };
