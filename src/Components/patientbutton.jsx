@@ -10,11 +10,11 @@ export const Patientbutton = (props) => {
         type: "CLICK/LEFT/PATIENT",
         payload: {
           patientName: props.patientName,
-          patientID: props.patientName,
+          patientID: props.patientId,
         },
       });
     }}
   >
-    Fred Johnson
+    {props.patientName}
   </div>;
 };
