@@ -2,9 +2,29 @@ import React, { Component } from "react";
 export const WorkingScreen = () => {
   return (
     <div className="workingWrapper">
+      {/* need function to match and pull data */}
+      {/* menueyfvhasfh blk */}
       <menu className="menublk">
-        <div>ICON</div>
+        <div className="icon">ICON</div>
+        {/* dynamic */}
+        <div>John Harris</div>
+
+        <div className="rightsideMenu">
+          <button className="appointmentBtn">Appointments</button>
+          <div className="bellicon"></div>
+          <div className="lockicon"></div>
+        </div>
       </menu>
+      {/* menueyfvhasfh blk */}
+      {/* sidebar */}
+      <div className="bottomStack">
+        <menu className="menuleftBox">
+          <div>Patients</div>
+          <div className="scrollbox"></div>
+          <div>+ Add Patients</div>
+        </menu>
+        <div className="body"></div>
+      </div>
     </div>
   );
 };
