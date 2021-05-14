@@ -1,17 +1,21 @@
-import React, { Component, useState, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import { Patientbutton } from "../Components/patientbutton";
 import { DOCTORPATIENTS } from "../Data/dumby";
+import { useDispatch, useSelector } from "react-redux";
 export const Patientleftmenu = () => {
-  const [dataPatient, setPatientData] = useState();
+  const dispatch = useDispatch();
+  const [dataPatient, setPatientData] = useState([]);
   useEffect(() => {
-    setPatientData(DOCTORPATIENTS);
+    setPatientData([...DOCTORPATIENTS]);
   }, []);
+
   const mapButtonPatient = dataPatient.map((x) => {
     const props = {
       patientName: x.patientName,
       patientID: x.patientID,
+      dispatch: dispatch,
     };
-    <Patientbutton {...props} />;
+    return <Patientbutton {...props} />;
   });
   return (
     <>

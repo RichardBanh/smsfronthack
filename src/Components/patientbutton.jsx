@@ -1,20 +1,22 @@
 import React, { Component, useState, useEffect } from "react";
-import { useSelector, useDispatch } from "react-redux";
-
+import { useSelector } from "react-redux";
 export const Patientbutton = (props) => {
-  <div
-    className="patientBox"
-    id={props.id}
-    onClick={() => {
-      useDispatch({
-        type: "CLICK/LEFT/PATIENT",
-        payload: {
-          patientName: props.patientName,
-          patientID: props.patientId,
-        },
-      });
-    }}
-  >
-    {props.patientName}
-  </div>;
+  const value = useSelector((state) => state.patient.patientName);
+  return (
+    <div
+      className="patientBox"
+      id={props.id}
+      onClick={() => {
+        props.dispatch({
+          type: "CLICK/LEFT/PATIENT",
+          payload: {
+            patientName: props.patientName,
+            patientID: props.patientId,
+          },
+        });
+      }}
+    >
+      {props.patientName}
+    </div>
+  );
 };

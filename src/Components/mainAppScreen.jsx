@@ -5,6 +5,5 @@ import { useSelector } from "react-redux";
 import { WorkingScreen } from "./Workingscreen";
 export const Main = () => {
   const loggedinPass = useSelector((state) => state.login.signin);
-  console.log(loggedinPass);
   return <Router>{loggedinPass ? <WorkingScreen /> : <Login />}</Router>;
 };

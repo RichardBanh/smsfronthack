@@ -7,6 +7,7 @@ import { Provider } from "react-redux";
 import { Main } from "./Components/mainAppScreen";
 
 import { login } from "./Redux/login";
+import { patient } from "./Redux/patientClick";
 
 // dont need yet... only when doing api call.. import thunk from "redux-thunk"
 
@@ -20,7 +21,7 @@ function App() {
   );
 }
 
-const rootReducer = combineReducers({ login });
+const rootReducer = combineReducers({ login, patient });
 
 const store = createStore(rootReducer);
 export default App;
