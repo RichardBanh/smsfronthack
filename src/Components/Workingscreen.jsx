@@ -2,6 +2,8 @@ import React, { Component, useEffect, useState } from "react";
 import { Patientleftmenu } from "../Components/patientLeftMenu";
 import { Patientheader } from "../Components/chart/patientHead";
 import { useSelector } from "react-redux";
+
+//auto save function?
 export const WorkingScreen = () => {
   const patientName = useSelector((state) => state.patient.patientId);
   const [patientChart, setPatientChart] = useState([]);
