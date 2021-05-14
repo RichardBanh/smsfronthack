@@ -1,10 +1,13 @@
 import React, { Component, useState, useEffect } from "react";
 import { useSelector } from "react-redux";
+
 export const Patientbutton = (props) => {
+  //this needs to be put into the main chart
   const value = useSelector((state) => state.patient.patientName);
   return (
     <div
       className="patientBox"
+      style={{ opacity: props.selected === props.id ? 0.6 : 1 }}
       id={props.id}
       onClick={() => {
         props.dispatch({
@@ -14,9 +17,10 @@ export const Patientbutton = (props) => {
             patientID: props.patientId,
           },
         });
+        props.setSelected(props.id);
       }}
     >
-      {props.patientName}
+      <div className="patientText">{props.patientName}</div>
     </div>
   );
 };
