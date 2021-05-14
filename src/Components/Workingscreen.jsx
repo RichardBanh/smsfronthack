@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { Patientleftmenu } from "../Components/patientLeftMenu";
 export const WorkingScreen = () => {
   return (
     <div className="workingWrapper">
@@ -18,11 +19,7 @@ export const WorkingScreen = () => {
       {/* menueyfvhasfh blk */}
       {/* sidebar */}
       <div className="bottomStack">
-        <menu className="menuleftBox">
-          <div>Patients</div>
-          <div className="scrollbox"></div>
-          <div>+ Add Patients</div>
-        </menu>
+        <Patientleftmenu />
         <div className="body"></div>
       </div>
     </div>
