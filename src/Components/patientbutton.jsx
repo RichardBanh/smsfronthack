@@ -3,7 +3,7 @@ import { useSelector } from "react-redux";
 
 export const Patientbutton = (props) => {
   //this needs to be put into the main chart
-  const value = useSelector((state) => state.patient.patientName);
+
   return (
     <div
       className="patientBox"

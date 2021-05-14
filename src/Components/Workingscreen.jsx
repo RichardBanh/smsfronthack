@@ -1,6 +1,15 @@
-import React, { Component } from "react";
+import React, { Component, useEffect, useState } from "react";
 import { Patientleftmenu } from "../Components/patientLeftMenu";
+import { Patientheader } from "../Components/chart/patientHead";
+import { useSelector } from "react-redux";
 export const WorkingScreen = () => {
+  const patientName = useSelector((state) => state.patient.patientId);
+  const [patientChart, setPatientChart] = useState([]);
+  useEffect(() => {
+    if (!patientName === "") {
+      //have to do a search function
+    }
+  }, []);
   return (
     <div className="workingWrapper">
       {/* need function to match and pull data */}
@@ -20,7 +29,27 @@ export const WorkingScreen = () => {
       {/* sidebar */}
       <div className="bottomStack">
         <Patientleftmenu />
-        <div className="body"></div>
+        <div className="body">
+          <div className="chart">
+            {/* dynamic */}
+            <Patientheader />
+            {/* dynamic */}
+            <div className="midrow">
+              <div className="leftcol">
+                <div className="patientinfo"></div>
+                <div className="medicalnotes"></div>
+              </div>
+              <div className="rightcol">
+                <div className="hivdiagnosis"></div>
+                <div className="bottombox">
+                  <div className="medication"></div>
+                  <div className="diagnosis"></div>
+                </div>
+              </div>
+            </div>
+            <div className="bottomrow"></div>
+          </div>
+        </div>
       </div>
     </div>
   );
