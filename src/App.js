@@ -5,9 +5,9 @@ import { Provider } from "react-redux";
 
 import { Main } from "./Components/mainAppScreen";
 
-import { login } from "./Redux/login";
-import { patient } from "./Redux/patientClick";
-import { patientChart } from "./Redux/patientChart";
+import { login } from "./Redux/loginReducer";
+import { patient } from "./Redux/patientClickReducer";
+import { patientChart } from "./Redux/patientChartReducer";
 
 // dont need yet... only when doing api call.. import thunk from "redux-thunk"
 
