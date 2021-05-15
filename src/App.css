@@ -193,10 +193,25 @@ body {
   align-items: center;
 }
 
+.tabblock {
+  margin-left: 15px;
+  display: flex;
+  flex-direction: column;
+  width: 50%;
+  height: 80%;
+  justify-content: space-between;
+}
+
+.secondblk {
+}
+
 .patientinfo {
-  background-color: turquoise;
   height: 33%;
   width: 100%;
+  margin-top: 12px;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
 }
 
 .medicalnotes {

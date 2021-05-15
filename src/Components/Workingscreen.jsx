@@ -8,7 +8,6 @@ import { PATIENTCHART } from "../Data/dumby";
 //auto save function?
 export const WorkingScreen = () => {
   const patientId = useSelector((state) => state.patient.patientId);
-  const [patientChart, setPatientChart] = useState([]);
   const dispatch = useDispatch();
   useEffect(() => {
     if (!patientId === "") {
@@ -42,7 +41,19 @@ export const WorkingScreen = () => {
             {/* dynamic */}
             <div className="midrow">
               <div className="leftcol">
-                <div className="patientinfo"></div>
+                <div className="patientinfo">
+                  <div className="tabblock">
+                    <div>Patient Info</div>
+                    <div>Age: </div>
+                    <div>Gender: </div>
+                    <div>Weight: </div>
+                    <div>Height: </div>
+                    <div>Blood Type: </div>
+                  </div>
+                  <div className="">
+                    <div>Account Creation Date:</div>
+                  </div>
+                </div>
                 <div className="medicalnotes"></div>
               </div>
               <div className="rightcol">
