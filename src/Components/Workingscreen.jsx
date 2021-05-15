@@ -1,15 +1,19 @@
 import React, { Component, useEffect, useState } from "react";
 import { Patientleftmenu } from "../Components/patientLeftMenu";
 import { Patientheader } from "../Components/chart/patientHead";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
+
+import { PATIENTCHART } from "../Data/dumby";
 
 //auto save function?
 export const WorkingScreen = () => {
-  const patientName = useSelector((state) => state.patient.patientId);
+  const patientId = useSelector((state) => state.patient.patientId);
   const [patientChart, setPatientChart] = useState([]);
+  const dispatch = useDispatch();
   useEffect(() => {
-    if (!patientName === "") {
-      //have to do a search function
+    if (!patientId === "") {
+      const matchChart = PATIENTCHART.find((x) => x.patientId === patientId);
+      dispatch({ type: "LOAD/INITIAL", payload: { all: matchChart } });
     }
   }, []);
   return (

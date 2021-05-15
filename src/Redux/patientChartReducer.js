@@ -1,6 +1,6 @@
 const initialState = {
   patientinfo: { age: "", height: "", gender: "", blood: "" },
-  medicalChart: [{ date: "", note: "" }],
+  medicalChart: [{ date: "", note: "", signed: "" }],
   hiv: {
     hivtype: "",
     hivdiagnosisStage: "",
@@ -22,32 +22,32 @@ export const patientChart = (state = initialState, action) => {
         ...state,
         medicalChart: [
           ...state.medicalChart,
-          { date: payload.date, note: payload.note },
+          { date: action.payload.date, note: action.payload.note },
         ],
       };
     case "UPDATE/MEDICATION":
       return {
         ...state,
-        medication: payload.medication,
+        medication: action.payload.medication,
       };
     case "UPDATE/DIAGNOSIS":
       return {
         ...state,
-        diagnosis: payload.diagnosis,
+        diagnosis: action.payload.diagnosis,
       };
     case "UPDATE/HIV":
       return {
         ...state,
         hiv: {
-          hivtype: payload.hivtype,
-          hivdiagnosisStage: payload.hivdiagnosisStage,
-          hivpositive: payload.hivpositive,
-          hivtest: payload.hivtest,
-          hivtreatment: payload.hivtreatment,
-          hivmedication: payload.hivmedication,
+          hivtype: action.payload.hivtype,
+          hivdiagnosisStage: action.payload.hivdiagnosisStage,
+          hivpositive: action.payload.hivpositive,
+          hivtest: action.payload.hivtest,
+          hivtreatment: action.payload.hivtreatment,
+          hivmedication: action.payload.hivmedication,
         },
       };
     default:
-      break;
+      return state;
   }
 };
