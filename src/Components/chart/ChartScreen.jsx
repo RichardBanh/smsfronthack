@@ -1,6 +1,7 @@
 import React, { Component, useEffect } from "react";
 import { PATIENTCHART } from "../../Data/dumby";
 import { Patientheader } from "./patientHead";
+import { SingleNote } from "./SingleNote";
 
 export const ChartScreen = (props) => {
   useEffect(() => {
@@ -10,7 +11,7 @@ export const ChartScreen = (props) => {
     props.dispatch({ type: "LOAD/INITIAL", payload: { all: matchChart } });
   }, []);
   //might cause issue when doing a remote call
-  console.log(props.patientinfo);
+  const notesMap = props.patientNotes.map((x) => <SingleNote {...x} />);
   return (
     <div className="chart">
       {/* dynamic */}
@@ -21,64 +22,21 @@ export const ChartScreen = (props) => {
           <div className="patientinfo">
             <div className="tabblock">
               <div>Patient Info</div>
-              <div>Age: </div>
-              <div>Gender: </div>
-              <div>Weight: </div>
-              <div>Height: </div>
-              <div>Blood Type: </div>
+              <div>Age: {props.patientinfo.age}</div>
+              <div>Gender: {props.patientinfo.gender} </div>
+              <div>Weight: {props.patientinfo.weight} </div>
+              <div>Height: {props.patientinfo.height}</div>
+              <div>Blood Type: {props.patientinfo.blood} </div>
+              <div>Home Doctor: {props.patientinfo.dr}</div>
             </div>
             <div>
-              <div>Account Creation Date:</div>
+              <div>
+                Account Creation Date: {props.patientinfo.accountcreation}
+              </div>
             </div>
           </div>
           {/* dynamic */}
-          <div className="medicalnotes">
-            <div className="singleNote">
-              <div className="noteDate">Date</div>
-              <div className="notePar">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                Accusamus iste porro recusandae. Perferendis, doloribus pariatur
-                perspiciatis quaerat voluptas tenetur autem officiis libero.
-                Modi enim adipisci eligendi vel aliquid est aut.
-              </div>
-            </div>
-            <div className="singleNote">
-              <div className="noteDate">Date</div>
-              <div className="notePar">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                Accusamus iste porro recusandae. Perferendis, doloribus pariatur
-                perspiciatis quaerat voluptas tenetur autem officiis libero.
-                Modi enim adipisci eligendi vel aliquid est aut.
-              </div>
-            </div>
-            <div className="singleNote">
-              <div className="noteDate">Date</div>
-              <div className="notePar">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                Accusamus iste porro recusandae. Perferendis, doloribus pariatur
-                perspiciatis quaerat voluptas tenetur autem officiis libero.
-                Modi enim adipisci eligendi vel aliquid est aut.
-              </div>
-            </div>
-            <div className="singleNote">
-              <div className="noteDate">Date</div>
-              <div className="notePar">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                Accusamus iste porro recusandae. Perferendis, doloribus pariatur
-                perspiciatis quaerat voluptas tenetur autem officiis libero.
-                Modi enim adipisci eligendi vel aliquid est aut.
-              </div>
-            </div>
-            <div className="singleNote">
-              <div className="noteDate">Date</div>
-              <div className="notePar">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                Accusamus iste porro recusandae. Perferendis, doloribus pariatur
-                perspiciatis quaerat voluptas tenetur autem officiis libero.
-                Modi enim adipisci eligendi vel aliquid est aut.
-              </div>
-            </div>
-          </div>
+          <div className="medicalnotes">{notesMap}</div>
           {/* dynamic */}
         </div>
         <div className="rightcol">

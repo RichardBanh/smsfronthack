@@ -7,6 +7,7 @@ import { ChartScreen } from "../Components/chart/ChartScreen";
 //auto save function?
 export const WorkingScreen = () => {
   const patientinfo = useSelector((state) => state.patientChart.patientinfo);
+  const patientNotes = useSelector((state) => state.patientChart.medicalChart);
   const dispatch = useDispatch();
   const patientId = useSelector((state) => state.patient.patientID);
 
@@ -14,6 +15,7 @@ export const WorkingScreen = () => {
     dispatch: dispatch,
     patientId: patientId,
     patientinfo: patientinfo,
+    patientNotes: patientNotes,
   };
 
   return (

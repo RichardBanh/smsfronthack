@@ -145,10 +145,12 @@ body {
   align-items: center;
 }
 /* chart */
+
 .toprow {
   width: 100%;
   margin-top: 15px;
 }
+
 .chart {
   width: 97%;
   height: 97%;
@@ -199,6 +201,7 @@ body {
 .singlePost {
   margin-top: 10;
 }
+
 .tabblock {
   margin-left: 15px;
   display: flex;
@@ -211,6 +214,7 @@ body {
 .patientinfo {
   height: 33%;
   width: 100%;
+  padding-top: 10px;
   margin-top: 12px;
   display: flex;
   flex-direction: row;
@@ -223,7 +227,6 @@ body {
 .medicalnotes {
   height: 60%;
   width: 100%;
-
   overflow: auto;
   min-height: 400px;
   border-width: 1px;

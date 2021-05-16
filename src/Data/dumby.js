@@ -36,7 +36,15 @@ export const DOCTORPATIENTS = [
 export const PATIENTCHART = [
   {
     patientId: "ashdfiu28rh2",
-    patientinfo: { age: "23", height: "130", gender: "Female", blood: "A" },
+    patientinfo: {
+      age: "23",
+      height: "130",
+      gender: "Female",
+      blood: "A",
+      weight: "70",
+      accountcreation: "20201206",
+      dr: "Dr John Harris",
+    },
     medicalChart: [
       {
         date: "2020123",
