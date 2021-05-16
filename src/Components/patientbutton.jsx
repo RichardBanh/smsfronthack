@@ -3,7 +3,6 @@ import { useSelector } from "react-redux";
 
 export const Patientbutton = (props) => {
   //this needs to be put into the main chart
-
   return (
     <div
       className="patientBox"
@@ -14,7 +13,7 @@ export const Patientbutton = (props) => {
           type: "CLICK/LEFT/PATIENT",
           payload: {
             patientName: props.patientName,
-            patientID: props.patientId,
+            patientID: props.patientID,
           },
         });
         props.setSelected(props.id);
