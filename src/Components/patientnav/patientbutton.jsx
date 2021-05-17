@@ -1,8 +1,6 @@
-import React, { Component, useState, useEffect } from "react";
-import { useSelector } from "react-redux";
+import React, { Component } from "react";
 
 export const Patientbutton = (props) => {
-  //this needs to be put into the main chart
   return (
     <div
       className="patientBox"
@@ -14,6 +12,7 @@ export const Patientbutton = (props) => {
           payload: {
             patientName: props.patientName,
             patientID: props.patientID,
+            phone: props.phone,
           },
         });
         props.setSelected(props.id);

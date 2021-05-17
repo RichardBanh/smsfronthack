@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
-import { Patientbutton } from "../Components/patientbutton";
-import { DOCTORPATIENTS } from "../Data/dumby";
+import { Patientbutton } from "./patientbutton";
+import { DOCTORPATIENTS } from "../../Data/dumby";
 import { useDispatch } from "react-redux";
 
 export const Patientleftmenu = () => {
@@ -15,6 +15,7 @@ export const Patientleftmenu = () => {
     const props = {
       patientName: x.patientName,
       patientID: x.patientID,
+      patientPhone: x.phone,
       id: x.id,
       dispatch: dispatch,
       selected: selected,

@@ -1,4 +1,4 @@
-const initialState = { patientName: "", patientID: "" };
+const initialState = { patientName: "", patientID: "", phone: "" };
 
 export const patient = (state = initialState, action) => {
   switch (action.type) {
@@ -6,6 +6,7 @@ export const patient = (state = initialState, action) => {
       return {
         patientName: action.payload.patientName,
         patientID: action.payload.patientID,
+        phone: action.payload.phone,
       };
     default:
       return state;

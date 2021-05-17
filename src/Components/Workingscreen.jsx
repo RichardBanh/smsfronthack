@@ -1,8 +1,8 @@
 import React, { Component, useEffect, useState } from "react";
-import { Patientleftmenu } from "../Components/patientLeftMenu";
-import { Patientheader } from "../Components/chart/patientHead";
+import { Patientleftmenu } from "./patientnav/patientLeftMenu";
+import { Patientheader } from "./chart/patientHead";
 import { useSelector, useDispatch } from "react-redux";
-import { ChartScreen } from "../Components/chart/ChartScreen";
+import { ChartScreen } from "./chart/ChartScreen";
 
 //auto save function?
 export const WorkingScreen = () => {
@@ -10,11 +10,15 @@ export const WorkingScreen = () => {
   const patientNotes = useSelector((state) => state.patientChart.medicalChart);
   const dispatch = useDispatch();
   const patientId = useSelector((state) => state.patient.patientID);
+  const patientName = useSelector((state) => state.patient.patientName);
+  const patientPhone = useSelector((state) => state.patient.phone);
   const propsFunc = {
     dispatch: dispatch,
     patientId: patientId,
     patientinfo: patientinfo,
     patientNotes: patientNotes,
+    patientPhone: patientPhone,
+    patientName: patientName,
   };
 
   return (

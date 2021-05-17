@@ -23,7 +23,10 @@ export const ChartScreen = (props) => {
   return (
     <div className="chart">
       {/* dynamic */}
-      <Patientheader />
+      <Patientheader
+        patientPhone={props.patientPhone}
+        patientName={props.patientName}
+      />
       {/* dynamic */}
       <div className="midrow">
         <div className="leftcol">
