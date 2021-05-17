@@ -22,7 +22,11 @@ export const patientChart = (state = initialState, action) => {
         ...state,
         medicalChart: [
           ...state.medicalChart,
-          { date: action.payload.date, note: action.payload.note },
+          {
+            date: action.payload.date,
+            note: action.payload.note,
+            signed: action.payload.signed,
+          },
         ],
       };
     case "UPDATE/MEDICATION":

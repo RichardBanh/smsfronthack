@@ -1,5 +1,5 @@
-const initialState = { username: "", signin: true };
-//need to reset for false
+const initialState = { username: "Dr John Harris", signin: true };
+//need to reset for false and username
 export const login = (state = initialState, action) => {
   switch (action.type) {
     case "SIGNIN":

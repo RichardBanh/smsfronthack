@@ -1,11 +1,14 @@
 import React, { Component, useState } from "react";
 import { SingleNote } from "./SingleNote";
 
+import { useDispatch, useSelector } from "react-redux";
+
 export const MedicalNotes = (props) => {
   const [showform, setShowForm] = useState(false);
   const [textvalue, setTextValue] = useState();
   const notesMap = props.patientNotes.map((x) => <SingleNote {...x} />);
-
+  const dispatch = useDispatch();
+  const drname = useSelector((state) => state.login.username);
   return (
     <div
       className="medicalnotes"
@@ -32,7 +35,12 @@ export const MedicalNotes = (props) => {
           <button
             onClick={(e) => {
               e.preventDefault();
+              dispatch({
+                type: "UPDATE/CHART",
+                payload: { date: props.date, note: textvalue, signed: drname },
+              });
             }}
+            //once hit submit need to clear
           >
             Submit
           </button>
