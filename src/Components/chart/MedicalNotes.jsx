@@ -8,7 +8,7 @@ export const MedicalNotes = (props) => {
     <div
       className="medicalnotes"
       onClick={() => {
-        setShowForm(!showform);
+        setShowForm(true);
       }}
     >
       {/* onclick show form */}
