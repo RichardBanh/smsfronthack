@@ -15,7 +15,7 @@ export const Patientleftmenu = () => {
     const props = {
       patientName: x.patientName,
       patientID: x.patientID,
-      patientPhone: x.phone,
+      patientPhone: x.patientPhone,
       id: x.id,
       dispatch: dispatch,
       selected: selected,

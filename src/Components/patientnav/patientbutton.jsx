@@ -12,7 +12,7 @@ export const Patientbutton = (props) => {
           payload: {
             patientName: props.patientName,
             patientID: props.patientID,
-            phone: props.phone,
+            patientPhone: props.patientPhone,
           },
         });
         props.setSelected(props.id);

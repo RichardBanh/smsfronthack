@@ -5,31 +5,31 @@ export const DOCTORPATIENTS = [
     patientName: "Enqu Waper",
     patientID: "ashdfiu28rh2",
     id: 1,
-    phone: "7789527551",
+    patientPhone: "7789527551",
   },
   {
     patientName: "Enqu Waper",
     patientID: "ashdfiu28rh2",
     id: 2,
-    phone: "7789527551",
+    patientPhone: "7789527551",
   },
   {
     patientName: "Enqu Waper",
     patientID: "ashdfiu28rh2",
     id: 3,
-    phone: "88223222",
+    patientPhone: "88223222",
   },
   {
     patientName: "Enqu Waper",
     patientID: "ashdfiu28rh2",
     id: 4,
-    phone: "88223222",
+    patientPhone: "88223222",
   },
   {
     patientName: "Enqu Waper",
     patientID: "ashdfiu28rh2",
     id: 5,
-    phone: "88223222",
+    patientPhone: "88223222",
   },
 ];
 
