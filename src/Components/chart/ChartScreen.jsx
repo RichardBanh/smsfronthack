@@ -3,6 +3,13 @@ import { PATIENTCHART } from "../../Data/dumby";
 import { Patientheader } from "./patientHead";
 import { SingleNote } from "./SingleNote";
 
+function getcurrentDate() {
+  const date = new Date();
+  const month = "" + (date.getMonth() + 1);
+  const day = "" + date.getDate();
+  const year = date.getFullYear();
+  return "" + year + day + month;
+}
 export const ChartScreen = (props) => {
   useEffect(() => {
     const matchChart = PATIENTCHART.find(
@@ -12,6 +19,7 @@ export const ChartScreen = (props) => {
   }, []);
   //might cause issue when doing a remote call
   const notesMap = props.patientNotes.map((x) => <SingleNote {...x} />);
+  const date = getcurrentDate();
   return (
     <div className="chart">
       {/* dynamic */}
@@ -36,7 +44,21 @@ export const ChartScreen = (props) => {
             </div>
           </div>
           {/* dynamic */}
-          <div className="medicalnotes">{notesMap}</div>
+          <div className="medicalnotes">
+            <form action="">
+              <div>{date}</div>
+              <textarea></textarea>
+              <button
+                onClick={(e) => {
+                  e.preventDefault();
+                }}
+              >
+                Submit
+              </button>
+            </form>
+
+            {notesMap}
+          </div>
           {/* dynamic */}
         </div>
         <div className="rightcol">

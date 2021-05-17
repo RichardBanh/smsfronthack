@@ -10,7 +10,6 @@ export const WorkingScreen = () => {
   const patientNotes = useSelector((state) => state.patientChart.medicalChart);
   const dispatch = useDispatch();
   const patientId = useSelector((state) => state.patient.patientID);
-
   const propsFunc = {
     dispatch: dispatch,
     patientId: patientId,
