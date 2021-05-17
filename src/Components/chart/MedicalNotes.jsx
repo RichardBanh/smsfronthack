@@ -3,27 +3,43 @@ import { SingleNote } from "./SingleNote";
 
 export const MedicalNotes = (props) => {
   const [showform, setShowForm] = useState(false);
+  const [textvalue, setTextValue] = useState();
   const notesMap = props.patientNotes.map((x) => <SingleNote {...x} />);
+
   return (
     <div
       className="medicalnotes"
       onClick={() => {
-        setShowForm(true);
+        if (textvalue === "" || textvalue === null || textvalue === undefined) {
+          setShowForm(!showform);
+        }
       }}
     >
-      {/* onclick show form */}
-      <form action="">
-        <div>{props.date}</div>
-        <textarea></textarea>
-        <button
+      {showform ? (
+        <form
+          action=""
           onClick={(e) => {
-            e.preventDefault();
+            e.stopPropagation();
           }}
         >
-          Submit
-        </button>
-      </form>
-
+          <div>{props.date}</div>
+          <textarea
+            value={textvalue}
+            onChange={(e) => {
+              setTextValue(e.target.value);
+            }}
+          ></textarea>
+          <button
+            onClick={(e) => {
+              e.preventDefault();
+            }}
+          >
+            Submit
+          </button>
+        </form>
+      ) : (
+        <div></div>
+      )}
       {notesMap}
     </div>
   );
