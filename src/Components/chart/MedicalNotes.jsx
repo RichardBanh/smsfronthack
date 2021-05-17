@@ -39,6 +39,8 @@ export const MedicalNotes = (props) => {
                 type: "UPDATE/CHART",
                 payload: { date: props.date, note: textvalue, signed: drname },
               });
+              setShowForm(false);
+              setTextValue(null);
             }}
             //once hit submit need to clear
           >
