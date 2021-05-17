@@ -1,7 +1,8 @@
 import React, { Component, useEffect } from "react";
 import { PATIENTCHART } from "../../Data/dumby";
 import { Patientheader } from "./patientHead";
-import { SingleNote } from "./SingleNote";
+import { MedicalNotes } from "./MedicalNotes";
+import { PatientInfo } from "./PatientInfo";
 
 function getcurrentDate() {
   const date = new Date();
@@ -18,7 +19,6 @@ export const ChartScreen = (props) => {
     props.dispatch({ type: "LOAD/INITIAL", payload: { all: matchChart } });
   }, []);
   //might cause issue when doing a remote call
-  const notesMap = props.patientNotes.map((x) => <SingleNote {...x} />);
   const date = getcurrentDate();
   return (
     <div className="chart">
@@ -27,38 +27,9 @@ export const ChartScreen = (props) => {
       {/* dynamic */}
       <div className="midrow">
         <div className="leftcol">
-          <div className="patientinfo">
-            <div className="tabblock">
-              <div>Patient Info</div>
-              <div>Age: {props.patientinfo.age}</div>
-              <div>Gender: {props.patientinfo.gender} </div>
-              <div>Weight: {props.patientinfo.weight} </div>
-              <div>Height: {props.patientinfo.height}</div>
-              <div>Blood Type: {props.patientinfo.blood} </div>
-              <div>Home Doctor: {props.patientinfo.dr}</div>
-            </div>
-            <div>
-              <div>
-                Account Creation Date: {props.patientinfo.accountcreation}
-              </div>
-            </div>
-          </div>
+          <PatientInfo {...props.patientinfo} />
           {/* dynamic */}
-          <div className="medicalnotes">
-            <form action="">
-              <div>{date}</div>
-              <textarea></textarea>
-              <button
-                onClick={(e) => {
-                  e.preventDefault();
-                }}
-              >
-                Submit
-              </button>
-            </form>
-
-            {notesMap}
-          </div>
+          <MedicalNotes patientNotes={props.patientNotes} date={date} />
           {/* dynamic */}
         </div>
         <div className="rightcol">
