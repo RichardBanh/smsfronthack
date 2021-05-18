@@ -1,15 +1,22 @@
-import React, { Component } from "react";
-import { useSelector } from "react-redux";
+import React, { Component, useState, useEffect } from "react";
 
-export const HivDiagnosis = () => {
+export const HivDiagnosis = (props) => {
   //state comparison and data call here
-  const hivChart = useSelector((state) => state.patientChart.hiv);
+  const {
+    hivtype,
+    hivdiagnosisStage,
+    hivpos,
+    hivtest,
+    hivtreatment,
+    hivmedication,
+  } = props.patientHiv;
+  const OG = props.patientHiv;
   return (
     <>
       <div className="hivdiagnosis">
         <div>HIV Diagnosis</div>
         <div className="diagnosisTop">
-          <select name="HIV Type" id="hivtype">
+          <select name="HIV Type" id="hivtype" value={hivtype}>
             <option value="1">HIV 1 M-A</option>
             <option value="2">HIV 1 M-B</option>
             <option value="3">HIV 1 M-C</option>
@@ -34,26 +41,29 @@ export const HivDiagnosis = () => {
             <option value="22">HIV 2 G</option>
             <option value="23">HIV 2 H</option>
           </select>
-          <select name="HIVStage" id="HIVStage" value="2">
+          <select name="HIVStage" id="HIVStage" value={hivdiagnosisStage}>
             <option value="1">Stage 1</option>
             <option value="2">Stage 2</option>
             <option value="3">Stage 3</option>
           </select>
           <label class="container">
             HIV Positive
-            <input type="checkbox" checked="checked" />
+            <input type="checkbox" checked={hivpos === "1" ? true : false} />
             <span class="checkmark"></span>
           </label>
         </div>
         <div className="diagnosisBottom">
           <div className="hivtest">
             <div>HIV Test</div>
+            <div>{hivtest}</div>
           </div>
           <div className="hivtreatment">
             <div>HIV Treatment Schedule</div>
+            {hivtreatment}
           </div>
           <div className="hivmed">
             <div>HIV Medication</div>
+            <div>{hivmedication}</div>
           </div>
         </div>
       </div>

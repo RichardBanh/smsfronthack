@@ -38,7 +38,7 @@ export const ChartScreen = (props) => {
         </div>
         <div className="rightcol">
           {/* dynamic */}
-          <HivDiagnosis />
+          <HivDiagnosis patientHiv={props.patientHiv} />
           {/* dynamic */}
           <div className="bottombox">
             <div className="medication">Medication</div>

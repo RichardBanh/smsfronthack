@@ -13,6 +13,9 @@ const initialState = {
   diagnosis: "",
 };
 
+//trouble maybe on the api side that combines the medical charts
+//might be nice to have a search function for the medical chart
+
 export const patientChart = (state = initialState, action) => {
   switch (action.type) {
     case "LOAD/INITIAL":

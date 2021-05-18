@@ -7,6 +7,7 @@ import { ChartScreen } from "./chart/ChartScreen";
 export const WorkingScreen = () => {
   const patientinfo = useSelector((state) => state.patientChart.patientinfo);
   const patientNotes = useSelector((state) => state.patientChart.medicalChart);
+  const patientHiv = useSelector((state) => state.patientChart.hiv);
   const dispatch = useDispatch();
   const patientId = useSelector((state) => state.patient.patientID);
   const patientName = useSelector((state) => state.patient.patientName);
@@ -18,6 +19,7 @@ export const WorkingScreen = () => {
     patientNotes: patientNotes,
     patientPhone: patientPhone,
     patientName: patientName,
+    patientHiv: patientHiv,
   };
 
   return (
