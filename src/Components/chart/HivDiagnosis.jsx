@@ -1,28 +1,11 @@
 import React, { Component, useState, useEffect, useRef } from "react";
 import { useDispatch } from "react-redux";
 
-function usePrevious(value) {
-  const ref = useRef();
-  useEffect(() => {
-    ref.current = value;
-  });
-  return ref.current;
-}
-
 export const HivDiagnosis = (props) => {
-  //state comparison and data call here
-  //may need to do api call to access data to sever data flow and allow state change here
-  //or compare to data stored locally?
-  //   const {
-  //     hivtype,
-  //     hivdiagnosisStage,
-  //     hivpositive,
-  //     hivtest,
-  //     hivtreatment,
-  //     hivmedication,
-  //   } = { ...props.patientHiv };
-  //   const dispatch = useDispatch();
   const [hiv, setHiv] = useState({ ...props.patientHiv });
+  const [showformTest, setShowFormTest] = useState(false);
+  const [showformHivTreat, setShowHivTreat] = useState(false);
+  const [showformHivMed, setformHivMed] = useState(false);
   useEffect(() => {
     setHiv(props.patientHiv);
   }, [props.patientHiv]);
@@ -64,7 +47,14 @@ export const HivDiagnosis = (props) => {
               <option value="22">HIV 2 G</option>
               <option value="23">HIV 2 H</option>
             </select>
-            <select name="HIVStage" id="HIVStage" value={hiv.hivdiagnosisStage}>
+            <select
+              name="HIVStage"
+              id="HIVStage"
+              value={hiv.hivdiagnosisStage}
+              onChange={(e) => {
+                setHiv({ ...hiv, hivdiagnosisStage: e.target.value });
+              }}
+            >
               <option value="1">Stage 1</option>
               <option value="2">Stage 2</option>
               <option value="3">Stage 3</option>
@@ -73,23 +63,81 @@ export const HivDiagnosis = (props) => {
               HIV Positive
               <input
                 type="checkbox"
-                checked={hiv.hivpositive === "1" ? true : false}
+                defaultChecked={hiv.hivpositive === "1" ? true : false}
+                value={hiv.hivpositive === "1" ? true : false}
+                onChange={() => {
+                  setHiv({
+                    ...hiv,
+                    hivpositive: hiv.hivpositive === true ? "1" : "0",
+                  });
+                }}
               />
               <span class="checkmark"></span>
             </label>
           </div>
           <div className="diagnosisBottom">
-            <div className="hivtest">
+            <div
+              className="hivtest"
+              onClick={() => {
+                setShowFormTest(!showformTest);
+              }}
+            >
               <div>HIV Test</div>
-              <div>{hiv.hivtest}</div>
+              {showformTest ? (
+                <textarea
+                  value={hiv.hivtest}
+                  onClick={(e) => {
+                    e.stopPropagation();
+                  }}
+                  onChange={(e) => {
+                    setHiv({ ...hiv, hivtest: e.target.value });
+                  }}
+                ></textarea>
+              ) : (
+                <div>{hiv.hivtest}</div>
+              )}
             </div>
-            <div className="hivtreatment">
+            <div
+              className="hivtreatment"
+              onClick={() => {
+                setShowHivTreat(!showformHivTreat);
+              }}
+            >
               <div>HIV Treatment Schedule</div>
-              {hiv.hivtreatment}
+              {showformHivTreat ? (
+                <textarea
+                  value={hiv.hivtreatment}
+                  onClick={(e) => {
+                    e.stopPropagation();
+                  }}
+                  onChange={(e) => {
+                    setHiv({ ...hiv, hivtreatment: e.target.value });
+                  }}
+                ></textarea>
+              ) : (
+                <div>{hiv.hivtreatment}</div>
+              )}
             </div>
-            <div className="hivmed">
+            <div
+              className="hivmed"
+              onClick={() => {
+                setformHivMed(!showformHivMed);
+              }}
+            >
               <div>HIV Medication</div>
-              <div>{hiv.hivmedication}</div>
+              {showformHivMed ? (
+                <textarea
+                  value={hiv.hivmedication}
+                  onClick={(e) => {
+                    e.stopPropagation();
+                  }}
+                  onChange={(e) => {
+                    setHiv({ ...hiv, hivmedication: e.target.value });
+                  }}
+                ></textarea>
+              ) : (
+                <div>{hiv.hivmedication}</div>
+              )}
             </div>
           </div>
         </div>
