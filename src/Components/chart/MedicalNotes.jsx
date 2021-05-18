@@ -42,7 +42,6 @@ export const MedicalNotes = (props) => {
               setShowForm(false);
               setTextValue(null);
             }}
-            //once hit submit need to clear
           >
             Submit
           </button>

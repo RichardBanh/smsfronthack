@@ -1,6 +1,5 @@
 import React, { Component, useEffect, useState } from "react";
 import { Patientleftmenu } from "./patientnav/patientLeftMenu";
-import { Patientheader } from "./chart/patientHead";
 import { useSelector, useDispatch } from "react-redux";
 import { ChartScreen } from "./chart/ChartScreen";
 
