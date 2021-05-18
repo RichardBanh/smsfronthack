@@ -1,7 +1,9 @@
 import React, { Component } from "react";
+import { useSelector } from "react-redux";
 
 export const HivDiagnosis = () => {
   //state comparison and data call here
+  const hivChart = useSelector((state) => state.patientChart.hiv);
   return (
     <>
       <div className="hivdiagnosis">
