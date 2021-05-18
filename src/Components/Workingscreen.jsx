@@ -12,7 +12,10 @@ export const WorkingScreen = () => {
   const patientId = useSelector((state) => state.patient.patientID);
   const patientName = useSelector((state) => state.patient.patientName);
   const patientPhone = useSelector((state) => state.patient.patientPhone);
-
+  const patientMedication = useSelector(
+    (state) => state.patientChart.medication
+  );
+  const patientDiagnosis = useSelector((state) => state.patientChart.diagnosis);
   const propsFunc = {
     dispatch: dispatch,
     patientId: patientId,
@@ -21,6 +24,8 @@ export const WorkingScreen = () => {
     patientPhone: patientPhone,
     patientName: patientName,
     patientHiv: patientHiv,
+    patientMedication: patientMedication,
+    patientDiagnosis: patientDiagnosis,
   };
 
   return (

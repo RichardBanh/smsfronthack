@@ -4,6 +4,8 @@ import { Patientheader } from "./patientHead";
 import { MedicalNotes } from "./MedicalNotes";
 import { PatientInfo } from "./PatientInfo";
 import { HivDiagnosis } from "./HivDiagnosis";
+import { GeneralDiagnosis } from "./GeneralDiagnosis";
+import { GeneralMedication } from "./GeneralMedication";
 
 function getcurrentDate() {
   const date = new Date();
@@ -41,8 +43,8 @@ export const ChartScreen = (props) => {
           <HivDiagnosis patientHiv={props.patientHiv} />
           {/* dynamic */}
           <div className="bottombox">
-            <div className="medication">Medication</div>
-            <div className="diagnosis">Diagnosis</div>
+            <GeneralMedication patientMedication={props.patientMedication} />
+            <GeneralDiagnosis patientDiagnosis={props.patientDiagnosis} />
           </div>
         </div>
       </div>
