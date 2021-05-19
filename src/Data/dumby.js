@@ -67,7 +67,7 @@ export const PATIENTCHART = [
         message: "Take medication",
         startdate: "20210306",
         times: ["1400"],
-        days: ["1", "5"],
+        days: ["Mon", "Thu"],
       },
     ],
   },
