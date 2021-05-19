@@ -1,6 +1,6 @@
-import React, { Component, useEffect } from "react";
+import React, { Component, useEffect, useState } from "react";
 import { PATIENTCHART } from "../../Data/dumby";
-import { Patientheader } from "./patientHead";
+import { Patientheader } from "./PatientHead";
 import { MedicalNotes } from "./MedicalNotes";
 import { PatientInfo } from "./PatientInfo";
 import { HivDiagnosis } from "./HivDiagnosis";
@@ -15,6 +15,7 @@ function getcurrentDate() {
   return "" + year + day + month;
 }
 export const ChartScreen = (props) => {
+  const [patientShow, setPatientShow] = useState();
   useEffect(() => {
     const matchChart = PATIENTCHART.find(
       (x) => x.patientId === props.patientId
@@ -50,7 +51,10 @@ export const ChartScreen = (props) => {
       </div>
       <div className="bottomrow">
         <button>Commit</button>
-        <div className="patientSetting"></div>
+        <div
+          className="patientSetting"
+          onClick={() => setPatientShow(!patientShow)}
+        ></div>
       </div>
     </div>
   );
