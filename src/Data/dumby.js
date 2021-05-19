@@ -62,5 +62,13 @@ export const PATIENTCHART = [
     },
     medication: "medication1, vitamins",
     diagnosis: "Hiv 3, Arthritis",
+    reminder: [
+      {
+        message: "Take medication",
+        startdate: "20210306",
+        times: ["1400"],
+        days: ["1", "5"],
+      },
+    ],
   },
 ];

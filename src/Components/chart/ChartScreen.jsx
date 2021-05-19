@@ -6,6 +6,7 @@ import { PatientInfo } from "./PatientInfo";
 import { HivDiagnosis } from "./HivDiagnosis";
 import { GeneralDiagnosis } from "./GeneralDiagnosis";
 import { GeneralMedication } from "./GeneralMedication";
+import { ReminderScreen } from "./ReminderScreen";
 
 function getcurrentDate() {
   const date = new Date();
@@ -15,14 +16,13 @@ function getcurrentDate() {
   return "" + year + day + month;
 }
 export const ChartScreen = (props) => {
-  const [patientShow, setPatientShow] = useState();
+  const [patientShowRem, setPatientShowRem] = useState(false);
   useEffect(() => {
     const matchChart = PATIENTCHART.find(
       (x) => x.patientId === props.patientId
     );
     props.dispatch({ type: "LOAD/INITIAL", payload: { all: matchChart } });
   }, []);
-  //might cause issue when doing a remote call
   const date = getcurrentDate();
   return (
     <div className="chart">
@@ -53,9 +53,14 @@ export const ChartScreen = (props) => {
         <button>Commit</button>
         <div
           className="patientSetting"
-          onClick={() => setPatientShow(!patientShow)}
+          onClick={() => setPatientShowRem(!patientShowRem)}
         ></div>
       </div>
+      {patientShowRem ? (
+        <ReminderScreen patientReminders={props.patientReminders} />
+      ) : (
+        ""
+      )}
     </div>
   );
 };

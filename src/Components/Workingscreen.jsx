@@ -16,6 +16,7 @@ export const WorkingScreen = () => {
     (state) => state.patientChart.medication
   );
   const patientDiagnosis = useSelector((state) => state.patientChart.diagnosis);
+  const patientReminders = useSelector((state) => state.patientChart.reminder);
   const propsFunc = {
     dispatch: dispatch,
     patientId: patientId,
@@ -26,6 +27,7 @@ export const WorkingScreen = () => {
     patientHiv: patientHiv,
     patientMedication: patientMedication,
     patientDiagnosis: patientDiagnosis,
+    patientReminders: patientReminders,
   };
 
   return (

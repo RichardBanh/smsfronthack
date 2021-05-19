@@ -11,6 +11,7 @@ const initialState = {
   },
   medication: "",
   diagnosis: "",
+  reminder: [{ message: "", startdate: "", times: [], days: [] }],
 };
 
 //trouble maybe on the api side that combines the medical charts
