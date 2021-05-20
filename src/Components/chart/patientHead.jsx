@@ -1,7 +1,6 @@
-import React, { Component, useState, useEffect } from "react";
+import React from "react";
 
 export const Patientheader = (props) => {
-  console.log(props);
   return (
     <div className="toprow">
       <header>

@@ -1,4 +1,4 @@
-import React, { Component, useState, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 
 export const ReminderMsg = (props) => {
   const [edit, setEdit] = useState(false);

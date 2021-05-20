@@ -1,5 +1,5 @@
-import React, { Component, useState, useEffect } from "react";
-import { useSelector, useDispatch } from "react-redux";
+import React, { useState } from "react";
+import { useDispatch } from "react-redux";
 
 //dumbie authsection need to add loading screen
 import { USER } from "../Data/dumby";

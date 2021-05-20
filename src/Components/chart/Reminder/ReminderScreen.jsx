@@ -1,4 +1,4 @@
-import React, { Component, useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
 import { ReminderMsg } from "./ReminderMsg";
 import { ReminderTime } from "./ReminderTime";
@@ -236,6 +236,14 @@ export const ReminderScreen = (props) => {
             }}
           >
             Add Reminder
+          </button>
+          <button
+            onClick={(e) => {
+              e.preventDefault();
+              props.setPatientShowRem(false);
+            }}
+          >
+            Close
           </button>
         </div>
       </div>

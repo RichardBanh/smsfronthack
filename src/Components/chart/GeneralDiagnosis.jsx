@@ -1,4 +1,4 @@
-import React, { Component, useState, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 
 export const GeneralDiagnosis = (props) => {
   const [diagnosis, setDiagnosis] = useState(props.patientDiagnosis);

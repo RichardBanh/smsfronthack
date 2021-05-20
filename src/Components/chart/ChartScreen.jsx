@@ -1,4 +1,4 @@
-import React, { Component, useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import { PATIENTCHART } from "../../Data/dumby";
 import { Patientheader } from "./PatientHead";
 import { MedicalNotes } from "./MedicalNotes";
@@ -57,7 +57,10 @@ export const ChartScreen = (props) => {
         ></div>
       </div>
       {patientShowRem ? (
-        <ReminderScreen patientReminders={props.patientReminders} />
+        <ReminderScreen
+          patientReminders={props.patientReminders}
+          setPatientShowRem={setPatientShowRem}
+        />
       ) : (
         ""
       )}

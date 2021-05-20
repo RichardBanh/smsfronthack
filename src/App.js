@@ -8,6 +8,7 @@ import { Main } from "./Components/mainAppScreen";
 import { login } from "./Redux/loginReducer";
 import { patient } from "./Redux/patientClickReducer";
 import { patientChart } from "./Redux/patientChartReducer";
+import { patientList } from "./Redux/patientListReducer";
 
 // dont need yet... only when doing api call.. import thunk from "redux-thunk"
 
@@ -21,7 +22,12 @@ function App() {
   );
 }
 
-const rootReducer = combineReducers({ login, patient, patientChart });
+const rootReducer = combineReducers({
+  login,
+  patient,
+  patientChart,
+  patientList,
+});
 
 const store = createStore(rootReducer);
 export default App;

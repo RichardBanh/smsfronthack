@@ -1,17 +1,22 @@
 import React, { useState, useEffect } from "react";
 import { Patientbutton } from "./patientbutton";
 import { DOCTORPATIENTS } from "../../Data/dumby";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import { PatientAdd } from "./PatientAdd";
 
 export const Patientleftmenu = () => {
   const dispatch = useDispatch();
-  const [dataPatient, setPatientData] = useState([]);
   const [selected, setSelected] = useState("all");
+  const docPatient = useSelector((state) => state.patientList);
   useEffect(() => {
-    setPatientData([...DOCTORPATIENTS]);
+    dispatch({
+      type: "PATIENT/LIST/LOADALL",
+      payload: { all: [...DOCTORPATIENTS] },
+    });
   }, []);
+  const [addPatient, setAdd] = useState(false);
 
-  const mapButtonPatient = dataPatient.map((x) => {
+  const mapButtonPatient = docPatient.map((x) => {
     const props = {
       patientName: x.patientName,
       patientID: x.patientID,
@@ -32,8 +37,16 @@ export const Patientleftmenu = () => {
           {mapButtonPatient}
           {/* //map this section */}
         </div>
-        <div className="labelPatientAdd">+ Add Patients</div>
+        <div
+          className="labelPatientAdd"
+          onClick={() => {
+            setAdd(!addPatient);
+          }}
+        >
+          + Add Patients
+        </div>
       </menu>
+      {addPatient ? <PatientAdd /> : ""}
     </>
   );
 };

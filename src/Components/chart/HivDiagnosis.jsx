@@ -1,5 +1,4 @@
-import React, { Component, useState, useEffect, useRef } from "react";
-import { useDispatch } from "react-redux";
+import React, { useState, useEffect } from "react";
 
 export const HivDiagnosis = (props) => {
   const [hiv, setHiv] = useState({ ...props.patientHiv });

@@ -474,3 +474,21 @@ textarea {
 .modal-bottom-right form {
   width: 100%;
 }
+
+.modal-add-top {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+.modal-input-items {
+  margin-bottom: 5px;
+}
+
+.modal-button {
+  margin-top: 10px;
+}
+.modal-add-patient-info {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
