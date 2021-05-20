@@ -11,7 +11,9 @@ const initialState = {
   },
   medication: "",
   diagnosis: "",
-  reminder: [{ message: "", startdate: "", times: [], days: [] }],
+  reminder: [
+    { message: "", startdate: "", times: [], days: [], everyWhen: "" },
+  ],
 };
 
 //trouble maybe on the api side that combines the medical charts
@@ -54,6 +56,10 @@ export const patientChart = (state = initialState, action) => {
           hivtreatment: action.payload.hivtreatment,
           hivmedication: action.payload.hivmedication,
         },
+      };
+    case "UPDATE/REMINDER/MSG":
+      return {
+        ...state,
       };
     default:
       return state;

@@ -6,7 +6,7 @@ import { PatientInfo } from "./PatientInfo";
 import { HivDiagnosis } from "./HivDiagnosis";
 import { GeneralDiagnosis } from "./GeneralDiagnosis";
 import { GeneralMedication } from "./GeneralMedication";
-import { ReminderScreen } from "./ReminderScreen";
+import { ReminderScreen } from "./Reminder/ReminderScreen";
 
 function getcurrentDate() {
   const date = new Date();
@@ -22,7 +22,7 @@ export const ChartScreen = (props) => {
       (x) => x.patientId === props.patientId
     );
     props.dispatch({ type: "LOAD/INITIAL", payload: { all: matchChart } });
-  }, []);
+  }, [props.patientId]);
   const date = getcurrentDate();
   return (
     <div className="chart">
