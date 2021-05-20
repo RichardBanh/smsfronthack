@@ -6,7 +6,7 @@ export const ReminderDays = (props) => {
   useEffect(() => {
     setDays([...props.days]);
   }, [props.days]);
-  console.log(days);
+
   return (
     <div className="modal-days-row">
       {edit ? (

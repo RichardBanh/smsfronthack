@@ -11,6 +11,9 @@ export const ReminderScreen = (props) => {
     ...props.patientReminders,
   ]);
   const [when, setWhen] = useState("");
+  const [days, setDays] = useState([]);
+  const [msg, setMsg] = useState("");
+  const [times, setTime] = useState([]);
 
   useEffect(() => {
     setpatientRemind(props.patientReminders);
@@ -40,11 +43,24 @@ export const ReminderScreen = (props) => {
               <div className="modal-top">
                 <div>
                   <div>Message?</div>
-                  <input type="text" placeholder="Take medicine" />
+                  <input
+                    type="text"
+                    name=""
+                    value={msg}
+                    onChange={(e) => {
+                      setMsg(e.target.value);
+                    }}
+                  />
                 </div>
                 <div>
                   <div>Times?</div>
-                  <input type="text" placeholder="1200, 1400, 1700" />
+                  <input
+                    type="text"
+                    value={times.join(", ")}
+                    onChange={(e) => {
+                      setTime([e.target.value]);
+                    }}
+                  />
                 </div>
               </div>
               <div className="modal-formdateFreq">
@@ -53,31 +69,101 @@ export const ReminderScreen = (props) => {
                   <div className="modal-form-datechecker">
                     <div>
                       <div>Mon</div>
-                      <input type="checkbox" name="Mon" id="" />
+                      <input
+                        type="checkbox"
+                        value="Mon"
+                        onChange={() => {
+                          const dayExclude = days.filter((x) => x !== "Mon");
+                          days.includes("Mon") === true
+                            ? setDays([...dayExclude])
+                            : setDays([...days, "Mon"]);
+                        }}
+                        checked={days.includes("Mon") === true ? true : false}
+                      />
                     </div>
                     <div>
                       <div>Tue</div>
-                      <input type="checkbox" name="Tue" id="" />
+                      <input
+                        type="checkbox"
+                        value="Tue"
+                        onChange={() => {
+                          const dayExclude = days.filter((x) => x !== "Tue");
+                          days.includes("Tue") === true
+                            ? setDays([...dayExclude])
+                            : setDays([...days, "Tue"]);
+                        }}
+                        checked={days.includes("Tue") === true ? true : false}
+                      />
                     </div>
                     <div>
                       <div>Wed</div>
-                      <input type="checkbox" name="Wed" id="" />
+                      <input
+                        type="checkbox"
+                        value="Wed"
+                        onChange={() => {
+                          const dayExclude = days.filter((x) => x !== "Wed");
+                          days.includes("Wed") === true
+                            ? setDays([...dayExclude])
+                            : setDays([...days, "Wed"]);
+                        }}
+                        checked={days.includes("Wed") === true ? true : false}
+                      />
                     </div>
                     <div>
                       <div>Thu</div>
-                      <input type="checkbox" name="Thu" id="" />
+                      <input
+                        type="checkbox"
+                        value="Thu"
+                        onChange={() => {
+                          const dayExclude = days.filter((x) => x !== "Thu");
+                          days.includes("Thu") === true
+                            ? setDays([...dayExclude])
+                            : setDays([...days, "Thu"]);
+                        }}
+                        checked={days.includes("Thu") === true ? true : false}
+                      />
                     </div>
                     <div>
                       <div>Fri</div>
-                      <input type="checkbox" name="Fri" id="" />
+                      <input
+                        type="checkbox"
+                        value="Fri"
+                        onChange={() => {
+                          const dayExclude = days.filter((x) => x !== "Fri");
+                          days.includes("Fri") === true
+                            ? setDays([...dayExclude])
+                            : setDays([...days, "Fri"]);
+                        }}
+                        checked={days.includes("Fri") === true ? true : false}
+                      />
                     </div>
                     <div>
                       <div>Sat</div>
-                      <input type="checkbox" name="Sat" id="" />
+                      <input
+                        type="checkbox"
+                        value="Sat"
+                        onChange={() => {
+                          const dayExclude = days.filter((x) => x !== "Sat");
+                          days.includes("Sat") === true
+                            ? setDays([...dayExclude])
+                            : setDays([...days, "Sat"]);
+                        }}
+                        checked={days.includes("Sat") === true ? true : false}
+                      />
                     </div>
                     <div>
                       <div>Sun</div>
-                      <input type="checkbox" name="Sun" id="" />
+                      <input
+                        type="checkbox"
+                        value="Sun"
+                        onChange={() => {
+                          const dayExclude = days.filter((x) => x !== "Sun");
+                          days.includes("Sun") === true
+                            ? setDays([...dayExclude])
+                            : setDays([...days, "Sun"]);
+                        }}
+                        checked={days.includes("Sun") === true ? true : false}
+                      />
                     </div>
                   </div>
                 </div>
@@ -119,10 +205,22 @@ export const ReminderScreen = (props) => {
                     />
                   </div>
                   <button
-                    onClick={() => {
-                      dispatch({ type: "ADD/REMINDER", payload: {} });
+                    onClick={(e) => {
+                      e.preventDefault();
+                      dispatch({
+                        type: "ADD/REMINDER",
+                        payload: {
+                          message: msg,
+                          times: [times],
+                          days: [days.join(" ")],
+                          everyWhen: when,
+                        },
+                      });
+                      setReminder(!showReminderForm);
                     }}
-                  ></button>
+                  >
+                    Submit
+                  </button>
                 </div>
               </div>
             </form>
@@ -144,3 +242,8 @@ export const ReminderScreen = (props) => {
     </>
   );
 };
+
+// const [when, setWhen] = useState("");
+//   const [days, setDays] = useState([]);
+//   const [msg, setMsg] = useState("");
+//   const [times, setTime] = useState([]);
