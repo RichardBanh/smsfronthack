@@ -10,6 +10,7 @@ export const ReminderScreen = (props) => {
   const [patientRemind, setpatientRemind] = useState([
     ...props.patientReminders,
   ]);
+  const [when, setWhen] = useState("");
 
   useEffect(() => {
     setpatientRemind(props.patientReminders);
@@ -83,16 +84,45 @@ export const ReminderScreen = (props) => {
                 <div className="modal-bottom-right">
                   <div>
                     <div>Every Month?</div>
-                    <input type="checkbox" name="EMonth" id="" />
+                    <input
+                      type="radio"
+                      value="Month"
+                      checked={when === "Month"}
+                      onChange={(e) => {
+                        setWhen(e.target.value);
+                      }}
+                    />
                   </div>
                   <div>
                     <div>Every Second Month?</div>
-                    <input type="checkbox" name="SMonth" id="" />
+                    <input
+                      onClick={(e) => {
+                        e.stopPropagation();
+                      }}
+                      type="radio"
+                      value="SMonth"
+                      checked={when === "SMonth"}
+                      onChange={(e) => {
+                        setWhen(e.target.value);
+                      }}
+                    />
                   </div>
                   <div>
                     <div>Every Week?</div>
-                    <input type="checkbox" name="EWeek" id="" />
+                    <input
+                      type="radio"
+                      value="EWeek"
+                      onChange={(e) => {
+                        setWhen(e.target.value);
+                      }}
+                      checked={when === "EWeek"}
+                    />
                   </div>
+                  <button
+                    onClick={() => {
+                      dispatch({ type: "ADD/REMINDER", payload: {} });
+                    }}
+                  ></button>
                 </div>
               </div>
             </form>

@@ -57,9 +57,19 @@ export const patientChart = (state = initialState, action) => {
           hivmedication: action.payload.hivmedication,
         },
       };
-    case "UPDATE/REMINDER/MSG":
+    case "ADD/REMINDER":
       return {
         ...state,
+        reminder: [
+          ...state.reminder,
+          {
+            message: action.payload.message,
+            startdate: action.payload.startdate,
+            times: [action.payload.times],
+            days: [action.payload.days],
+            everyWhen: action.payload.everyWhen,
+          },
+        ],
       };
     default:
       return state;
