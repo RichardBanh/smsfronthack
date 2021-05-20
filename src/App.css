@@ -470,3 +470,7 @@ textarea {
 .modal-day {
   width: 31px;
 }
+
+.modal-bottom-right form {
+  width: 100%;
+}

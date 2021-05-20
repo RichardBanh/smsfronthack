@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React, { Component, useState, useEffect } from "react";
 
 export const ReminderEvery = (props) => {
   const [when, setWhen] = useState(props.everyWhen);
@@ -9,27 +9,75 @@ export const ReminderEvery = (props) => {
   return (
     <>
       {edit ? (
-        <div>
+        <form>
           <div>
             <div>Every Month?</div>
-            <input type="checkbox" name="EMonth" id="" />
+            <input
+              onClick={(e) => {
+                e.stopPropagation();
+              }}
+              type="radio"
+              value="Month"
+              checked={when === "Month"}
+              onChange={(e) => {
+                setWhen(e.target.value);
+              }}
+            />
           </div>
           <div>
             <div>Every Second Month?</div>
-            <input type="checkbox" name="SMonth" id="" />
+            <input
+              onClick={(e) => {
+                e.stopPropagation();
+              }}
+              type="radio"
+              value="SMonth"
+              checked={when === "SMonth"}
+              onChange={(e) => {
+                setWhen(e.target.value);
+              }}
+            />
           </div>
-          <div>
+          <div
+            onClick={(e) => {
+              e.stopPropagation();
+            }}
+          >
             <div>Every Week?</div>
-            <input type="checkbox" name="EWeek" id="" />
+            <input
+              type="radio"
+              value="EWeek"
+              onChange={(e) => {
+                setWhen(e.target.value);
+              }}
+              onClick={(e) => {
+                e.stopPropagation();
+              }}
+              checked={when === "EWeek"}
+            />
           </div>
-        </div>
+          <button
+            onClick={() => {
+              setEdit(!edit);
+            }}
+          >
+            close
+          </button>
+        </form>
       ) : (
         <div
           onClick={() => {
             setEdit(!edit);
           }}
         >
-          Every {when}
+          Every{" "}
+          {when === "Month"
+            ? "Month"
+            : when === "SMonth"
+            ? "Second Month"
+            : when === "EWeek"
+            ? "Week"
+            : "N/A"}
         </div>
       )}
     </>

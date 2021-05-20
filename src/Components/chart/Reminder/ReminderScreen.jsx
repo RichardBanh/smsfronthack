@@ -22,7 +22,6 @@ export const ReminderScreen = (props) => {
       </div>
       <div className="modal-bottom">
         <div className="modal-days">
-          Days Sent:
           <ReminderDays days={x.days} id={x.id} />
         </div>
         <div className="modal-bottom-right">
