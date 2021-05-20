@@ -46,7 +46,7 @@ export const Patientleftmenu = () => {
           + Add Patients
         </div>
       </menu>
-      {addPatient ? <PatientAdd /> : ""}
+      {addPatient ? <PatientAdd setAdd={setAdd} /> : ""}
     </>
   );
 };

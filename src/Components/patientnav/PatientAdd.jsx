@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
 
-export const PatientAdd = () => {
+export const PatientAdd = (props) => {
   const [patientName, setpatientName] = useState("");
   const [patientID, setpatientID] = useState("");
   const [patientPhone, setpatientPhone] = useState("");
@@ -85,10 +85,18 @@ export const PatientAdd = () => {
                 patientPhone: patientPhone,
               },
             });
+            props.setAdd(false);
             //need to add dispatch to add chart to data
           }}
         >
           Submit
+        </button>
+        <button
+          onClick={() => {
+            props.setAdd(false);
+          }}
+        >
+          Close
         </button>
       </div>
     </div>
