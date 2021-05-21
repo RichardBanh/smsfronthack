@@ -1,7 +1,8 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Patientleftmenu } from "./patientnav/patientLeftMenu";
 import { useSelector, useDispatch } from "react-redux";
 import { ChartScreen } from "./chart/ChartScreen";
+import { Appointment } from "./Appointment";
 
 //auto save function?
 export const WorkingScreen = () => {
@@ -15,6 +16,7 @@ export const WorkingScreen = () => {
   const patientMedication = useSelector(
     (state) => state.patientChart.medication
   );
+  const [showappointment, setshow] = useState(false);
   const patientDiagnosis = useSelector((state) => state.patientChart.diagnosis);
   const patientReminders = useSelector((state) => state.patientChart.reminder);
   const propsFunc = {
@@ -42,10 +44,18 @@ export const WorkingScreen = () => {
           <div>John Harris</div>
 
           <div className="rightsideMenu">
-            <button className="appointmentBtn">Appointments</button>
+            <button
+              className="appointmentBtn"
+              onClick={() => {
+                setshow(true);
+              }}
+            >
+              Appointments
+            </button>
             <div className="bellicon"></div>
             <div className="lockicon"></div>
           </div>
+          {showappointment ? <Appointment /> : ""}
         </menu>
         {/* menueyfvhasfh blk */}
         {/* sidebar */}

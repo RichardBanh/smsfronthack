@@ -478,7 +478,7 @@ textarea {
 .modal-add-top {
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
+  justify-content: space-evenly;
 }
 .modal-input-items {
   margin-bottom: 5px;
@@ -490,5 +490,5 @@ textarea {
 .modal-add-patient-info {
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
+  justify-content: space-evenly;
 }

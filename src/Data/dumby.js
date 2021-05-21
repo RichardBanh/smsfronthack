@@ -33,6 +33,29 @@ export const DOCTORPATIENTS = [
   },
 ];
 
+export const APPOINTMENTLIST = [
+  {
+    patient: "Enqu Waper",
+    appointmentTime: "1200",
+    patientDate: "20210720",
+  },
+  {
+    patient: "Tim Wok",
+    appointmentTime: "100",
+    patientDate: "20209420",
+  },
+  {
+    patient: "Jackson Wilken",
+    appointmentTime: "300",
+    patientDate: "20211120",
+  },
+  {
+    patient: "Fred Mac",
+    appointmentTime: "600",
+    patientDate: "20210420",
+  },
+];
+
 export const PATIENTCHART = [
   {
     patientId: "ashdfiu28rh2",
