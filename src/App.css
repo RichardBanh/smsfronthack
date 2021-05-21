@@ -492,3 +492,21 @@ textarea {
   flex-direction: row;
   justify-content: space-evenly;
 }
+
+.singleAppointment {
+  margin-bottom: 15px;
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.single-appointment-item {
+  width: 100px;
+}
+
+.modal-content-appointment {
+  width: 50%;
+  background-color: #fefefe;
+  margin: 15% auto; /* 15% from the top and centered */
+  padding: 20px;
+  border: 1px solid #888;
+}

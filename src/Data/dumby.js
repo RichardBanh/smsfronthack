@@ -37,22 +37,30 @@ export const APPOINTMENTLIST = [
   {
     patient: "Enqu Waper",
     appointmentTime: "1200",
-    patientDate: "20210720",
+    patientDate: "2021-07-20",
+    phone: "122232322",
+    duration: "30min",
   },
   {
     patient: "Tim Wok",
     appointmentTime: "100",
-    patientDate: "20209420",
+    patientDate: "2020-03-20",
+    phone: "122232322",
+    duration: "30min",
   },
   {
     patient: "Jackson Wilken",
     appointmentTime: "300",
-    patientDate: "20211120",
+    patientDate: "2021-11-20",
+    phone: "122232322",
+    duration: "30min",
   },
   {
     patient: "Fred Mac",
     appointmentTime: "600",
-    patientDate: "20210420",
+    patientDate: "2021-04-20",
+    phone: "122232322",
+    duration: "30min",
   },
 ];
 

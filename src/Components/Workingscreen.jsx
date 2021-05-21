@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { Patientleftmenu } from "./patientnav/patientLeftMenu";
 import { useSelector, useDispatch } from "react-redux";
 import { ChartScreen } from "./chart/ChartScreen";
-import { Appointment } from "./Appointment";
+import { Appointment } from "./Appointment/Appointment";
 
 //auto save function?
 export const WorkingScreen = () => {
