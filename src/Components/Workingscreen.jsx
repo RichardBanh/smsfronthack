@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { Patientleftmenu } from "./patientnav/patientLeftMenu";
 import { useSelector, useDispatch } from "react-redux";
 import { ChartScreen } from "./chart/ChartScreen";

@@ -1,33 +1,19 @@
 import React, { Component, useEffect, useState } from "react";
 import { APPOINTMENTLIST } from "../../Data/dumby";
-export const Appointment = (props) => {
-  //pull data and map
-  const [appointments, setAppointments] = useState([]);
+import { useDispatch, useSelector } from "react-redux";
+
+import { SingleAppointment } from "./SingleAppointment";
+export const Appointment = () => {
+  const dispatch = useDispatch();
+  const drappointments = useSelector((state) => state.drappointments);
   useEffect(() => {
-    setAppointments([...APPOINTMENTLIST]);
+    dispatch({
+      type: "LOAD/INITIAL/DRAPPOIN",
+      payload: { all: [...APPOINTMENTLIST] },
+    });
   }, []);
-  const appointmentMap = appointments.map((x) => (
-    <div className="singleAppointment">
-      <div className="single-appointment-item">{x.patient}</div>
-      <div className="single-appointment-item">
-        Date: <br />
-        {x.patientDate}
-      </div>
-      <div className="single-appointment-item">
-        Time: <br />
-        {x.appointmentTime}
-      </div>
-      <div className="single-appointment-item">
-        Phone: <br />
-        {x.phone}
-      </div>
-      <div className="single-appointment-item">
-        Duration: <br />
-        {x.duration}
-      </div>
-      <button>Delete</button>
-      <button>Edit</button>
-    </div>
+  const appointmentMap = drappointments.map((x) => (
+    <SingleAppointment {...x} dispatch={dispatch} />
   ));
   return (
     <div className="modal">

@@ -35,6 +35,7 @@ export const DOCTORPATIENTS = [
 
 export const APPOINTMENTLIST = [
   {
+    id: "12sgs",
     patient: "Enqu Waper",
     appointmentTime: "1200",
     patientDate: "2021-07-20",
@@ -42,6 +43,7 @@ export const APPOINTMENTLIST = [
     duration: "30min",
   },
   {
+    id: "asdf211s",
     patient: "Tim Wok",
     appointmentTime: "100",
     patientDate: "2020-03-20",
@@ -49,6 +51,7 @@ export const APPOINTMENTLIST = [
     duration: "30min",
   },
   {
+    id: "aad121s",
     patient: "Jackson Wilken",
     appointmentTime: "300",
     patientDate: "2021-11-20",
@@ -56,6 +59,7 @@ export const APPOINTMENTLIST = [
     duration: "30min",
   },
   {
+    id: "aad2111221s",
     patient: "Fred Mac",
     appointmentTime: "600",
     patientDate: "2021-04-20",
