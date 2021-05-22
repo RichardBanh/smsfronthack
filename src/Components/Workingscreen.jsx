@@ -3,6 +3,7 @@ import { Patientleftmenu } from "./patientnav/patientLeftMenu";
 import { useSelector, useDispatch } from "react-redux";
 import { ChartScreen } from "./chart/ChartScreen";
 import { Appointment } from "./Appointment/Appointment";
+import { APPOINTMENTLIST } from "../Data/dumby";
 
 //auto save function?
 export const WorkingScreen = () => {
@@ -48,6 +49,10 @@ export const WorkingScreen = () => {
               className="appointmentBtn"
               onClick={() => {
                 setshow(true);
+                dispatch({
+                  type: "LOAD/INITIAL/DRAPPOIN",
+                  payload: { all: [...APPOINTMENTLIST] },
+                });
               }}
             >
               Appointments

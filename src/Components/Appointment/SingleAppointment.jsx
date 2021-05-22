@@ -1,4 +1,7 @@
 import React, { useState, useEffect } from "react";
+import { useDispatch } from "react-redux";
+
+//probably not the right way to do this... need to revise
 
 export const SingleAppointment = (props) => {
   const [edit, setEdit] = useState(false);
@@ -6,14 +9,19 @@ export const SingleAppointment = (props) => {
   useEffect(() => {
     setpatientApp({ ...props });
   }, [props]);
-
   return (
     <div className="singleAppointment">
       <div className="single-appointment-item">{patientApp.patient}</div>
       <div className="single-appointment-item">
         Date: <br />
         {edit ? (
-          <input type="text" defaultValue={patientApp.patientDate} />
+          <input
+            type="text"
+            value={patientApp.patientDate}
+            onChange={(e) => {
+              setpatientApp({ ...patientApp, patientDate: e.target.value });
+            }}
+          />
         ) : (
           patientApp.patientDate
         )}
@@ -21,7 +29,13 @@ export const SingleAppointment = (props) => {
       <div className="single-appointment-item">
         Time: <br />
         {edit ? (
-          <input type="text" defaultValue={patientApp.appointmentTime} />
+          <input
+            type="text"
+            value={patientApp.appointmentTime}
+            onChange={(e) => {
+              setpatientApp({ ...patientApp, appointmentTime: e.target.value });
+            }}
+          />
         ) : (
           patientApp.appointmentTime
         )}
@@ -29,7 +43,13 @@ export const SingleAppointment = (props) => {
       <div className="single-appointment-item">
         Phone: <br />
         {edit ? (
-          <input type="text" defaultValue={patientApp.phone} />
+          <input
+            type="text"
+            value={patientApp.phone}
+            onChange={(e) => {
+              setpatientApp({ ...patientApp, phone: e.target.value });
+            }}
+          />
         ) : (
           patientApp.phone
         )}
@@ -37,16 +57,44 @@ export const SingleAppointment = (props) => {
       <div className="single-appointment-item">
         Duration: <br />
         {edit ? (
-          <input type="text" defaultValue={patientApp.duration} />
+          <input
+            type="text"
+            value={patientApp.duration}
+            onChange={(e) => {
+              setpatientApp({ ...patientApp, duration: e.target.value });
+            }}
+          />
         ) : (
           patientApp.duration
         )}
       </div>
-      <button>Delete</button>
+      <button
+        onClick={() => {
+          props.dispatch({
+            type: "DELETE/DRAPPOIN",
+            payload: { id: patientApp.id },
+          });
+        }}
+      >
+        Delete
+      </button>
       {edit ? (
         <button
           onClick={() => {
             setEdit(!edit);
+            props.dispatch({
+              type: "UPDATE/ONE/DRAPPOIN",
+              payload: {
+                updated: {
+                  id: patientApp.id,
+                  patient: patientApp.patient,
+                  appointmentTime: patientApp.appointmentTime,
+                  patientDate: patientApp.patientDate,
+                  phone: patientApp.phone,
+                  duration: patientApp.duration,
+                },
+              },
+            });
           }}
         >
           Submit
