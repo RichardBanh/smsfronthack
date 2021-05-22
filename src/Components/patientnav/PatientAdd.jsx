@@ -16,8 +16,6 @@ export const PatientAdd = (props) => {
               <div className="modal-input-items">Username:</div>
               <input
                 type="text"
-                name=""
-                id=""
                 value={patientID}
                 onChange={(e) => {
                   setpatientID(e.target.value);
@@ -30,8 +28,6 @@ export const PatientAdd = (props) => {
               <div className="modal-input-items">Phone Number:</div>
               <input
                 type="text"
-                name=""
-                id=""
                 value={patientPhone}
                 onChange={(e) => {
                   setpatientPhone(e.target.value);

@@ -70,10 +70,7 @@ export const SingleAppointment = (props) => {
       </div>
       <button
         onClick={() => {
-          props.dispatch({
-            type: "DELETE/DRAPPOIN",
-            payload: { id: patientApp.id },
-          });
+          props.callBackDel(patientApp.id);
         }}
       >
         Delete
@@ -82,19 +79,6 @@ export const SingleAppointment = (props) => {
         <button
           onClick={() => {
             setEdit(!edit);
-            props.dispatch({
-              type: "UPDATE/ONE/DRAPPOIN",
-              payload: {
-                updated: {
-                  id: patientApp.id,
-                  patient: patientApp.patient,
-                  appointmentTime: patientApp.appointmentTime,
-                  patientDate: patientApp.patientDate,
-                  phone: patientApp.phone,
-                  duration: patientApp.duration,
-                },
-              },
-            });
           }}
         >
           Submit

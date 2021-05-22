@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { Patientleftmenu } from "./patientnav/patientLeftMenu";
 import { useSelector, useDispatch } from "react-redux";
 import { ChartScreen } from "./chart/ChartScreen";
-import { Appointment } from "./Appointment/Appointment";
+import { AppointmentBase } from "./Appointment/AppointmentBase";
 import { APPOINTMENTLIST } from "../Data/dumby";
 
 //auto save function?
@@ -60,7 +60,7 @@ export const WorkingScreen = () => {
             <div className="bellicon"></div>
             <div className="lockicon"></div>
           </div>
-          {showappointment ? <Appointment /> : ""}
+          {showappointment ? <AppointmentBase /> : ""}
         </menu>
         {/* menueyfvhasfh blk */}
         {/* sidebar */}
