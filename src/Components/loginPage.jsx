@@ -1,14 +1,9 @@
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
-
 //dumbie authsection need to add loading screen
-import { USER } from "../Data/dumby";
-
+import { loginFetch } from "../Fetch-cookie/loginFetch";
+import Cookies from "js-cookie";
 export const Login = () => {
-  //dumbie email and pass
-  const email = USER[0].email;
-  const pass = USER[0].password;
-  ///
   const dis = useDispatch();
   const [userName, setUsername] = useState("");
   const [password, setPass] = useState("");
@@ -31,11 +26,14 @@ export const Login = () => {
             }}
           />
           <button
-            onClick={(e) => {
+            onClick={async (e) => {
               e.preventDefault();
 
               //dumbie authsection need to add loading screen
-              if (userName === email && password === pass) {
+              await loginFetch({ username: userName, password: password });
+              const username = Cookies.get("username");
+              const jwt = Cookies.get("jwt");
+              if (userName === username && typeof jwt !== "undefined") {
                 dis({ type: "SIGNIN", payload: { username: userName } });
               }
             }}
