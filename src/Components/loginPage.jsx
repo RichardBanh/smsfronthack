@@ -7,6 +7,8 @@ export const Login = () => {
   const dis = useDispatch();
   const [userName, setUsername] = useState("");
   const [password, setPass] = useState("");
+  const [userlogin, setloginOk] = useState(false);
+
   return (
     <>
       <div className="loginWrapper">
@@ -28,14 +30,13 @@ export const Login = () => {
           <button
             onClick={async (e) => {
               e.preventDefault();
-
-              //dumbie authsection need to add loading screen
-              await loginFetch({ username: userName, password: password });
-              const username = Cookies.get("username");
-              const jwt = Cookies.get("jwt");
-              if (userName === username && typeof jwt !== "undefined") {
-                dis({ type: "SIGNIN", payload: { username: userName } });
-              }
+              loginFetch(
+                { username: userName, password: password },
+                setloginOk,
+                dis,
+                "SIGNIN",
+                { username: userName, signin: true }
+              );
             }}
           >
             Login
