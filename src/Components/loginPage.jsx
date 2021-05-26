@@ -7,7 +7,6 @@ export const Login = () => {
   const dis = useDispatch();
   const [userName, setUsername] = useState("");
   const [password, setPass] = useState("");
-  const [userlogin, setloginOk] = useState(false);
 
   return (
     <>
@@ -32,7 +31,6 @@ export const Login = () => {
               e.preventDefault();
               loginFetch(
                 { username: userName, password: password },
-                setloginOk,
                 dis,
                 "SIGNIN",
                 { username: userName, signin: true }

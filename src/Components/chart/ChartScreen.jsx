@@ -18,10 +18,12 @@ function getcurrentDate() {
 export const ChartScreen = (props) => {
   const [patientShowRem, setPatientShowRem] = useState(false);
   useEffect(() => {
-    const matchChart = PATIENTCHART.find(
-      (x) => x.patientId === props.patientId
-    );
-    props.dispatch({ type: "LOAD/INITIAL", payload: { all: matchChart } });
+    //sort function
+    //call data first
+    // const matchChart = PATIENTCHART.find(
+    //   (x) => x.patientId === props.patientId
+    // );
+    // props.dispatch({ type: "LOAD/INITIAL", payload: { all: matchChart } });
   }, [props.patientId]);
   const date = getcurrentDate();
   return (

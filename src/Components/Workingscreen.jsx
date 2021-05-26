@@ -7,7 +7,6 @@ import { APPOINTMENTLIST } from "../Data/dumby";
 
 //auto save function?
 export const WorkingScreen = () => {
-  const patientinfo = useSelector((state) => state.patientChart.patientinfo);
   const patientNotes = useSelector((state) => state.patientChart.medicalChart);
   const patientHiv = useSelector((state) => state.patientChart.hiv);
   const dispatch = useDispatch();
@@ -17,13 +16,13 @@ export const WorkingScreen = () => {
   const patientMedication = useSelector(
     (state) => state.patientChart.medication
   );
+  const patientList = useSelector((state) => state.patientList);
   const [showappointment, setshow] = useState(false);
   const patientDiagnosis = useSelector((state) => state.patientChart.diagnosis);
   const patientReminders = useSelector((state) => state.patientChart.reminder);
   const propsFunc = {
     dispatch: dispatch,
     patientId: patientId,
-    patientinfo: patientinfo,
     patientNotes: patientNotes,
     patientPhone: patientPhone,
     patientName: patientName,
@@ -31,6 +30,7 @@ export const WorkingScreen = () => {
     patientMedication: patientMedication,
     patientDiagnosis: patientDiagnosis,
     patientReminders: patientReminders,
+    patientList: patientList,
   };
 
   return (
