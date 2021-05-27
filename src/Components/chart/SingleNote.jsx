@@ -5,7 +5,7 @@ export const SingleNote = (props) => {
     <div className="singleNote">
       <div className="noteDate">{props.date}</div>
       <div className="notePar">{props.patientNote}</div>
-      <div>{props.doctor_id}</div>
+      <div>Doctor#: {props.doctor_id}</div>
     </div>
   );
 };

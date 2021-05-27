@@ -3,18 +3,21 @@ import React, { useState, useEffect } from "react";
 export const PatientInfo = (props) => {
   const [patientInfo, setPatientInfo] = useState(props);
   const [changeAge, setChangeA] = useState(false);
-  const [changeGender, setChangeG] = useState(false);
+
+  // const [changeGender, setChangeG] = useState(false);
   const [changeWeight, setChangeW] = useState(false);
   const [changeHeight, setChangeH] = useState(false);
   const [changeDr, setChangeD] = useState(false);
+
   useEffect(() => {
     setPatientInfo(props);
   }, [props]);
+
   return (
     <div
       className="patientinfo"
       onClick={() => {
-        setChangeG(false);
+        // setChangeG(false);
         setChangeA(false);
         setChangeD(false);
         setChangeW(false);

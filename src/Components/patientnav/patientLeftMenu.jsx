@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
 import { Patientbutton } from "./patientbutton";
-import { DOCTORPATIENTS } from "../../Data/dumby";
 import { useDispatch, useSelector } from "react-redux";
 import { PatientAdd } from "./PatientAdd";
 import { patientFetch } from "../../Fetch-cookie/patientListFetch";
@@ -24,6 +23,7 @@ export const Patientleftmenu = () => {
       selected: selected,
       setSelected: setSelected,
     };
+
     return <Patientbutton {...props} key={x.uuid} />;
   });
   return (
