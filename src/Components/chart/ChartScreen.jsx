@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-import { PATIENTCHART } from "../../Data/dumby";
 import { Patientheader } from "./PatientHead";
 import { MedicalNotes } from "./MedicalNotes";
 import { PatientInfo } from "./PatientInfo";
@@ -7,6 +6,7 @@ import { HivDiagnosis } from "./HivDiagnosis";
 import { GeneralDiagnosis } from "./GeneralDiagnosis";
 import { GeneralMedication } from "./GeneralMedication";
 import { ReminderScreen } from "./Reminder/ReminderScreen";
+import { patientNotesFetch } from "../../Fetch-cookie/patientNotesFetch";
 
 function getcurrentDate() {
   const date = new Date();
@@ -17,13 +17,13 @@ function getcurrentDate() {
 }
 export const ChartScreen = (props) => {
   const [patientShowRem, setPatientShowRem] = useState(false);
+  const [currentPatientInfo, setPatientInfo] = useState("");
   useEffect(() => {
-    //sort function
-    //call data first
-    // const matchChart = PATIENTCHART.find(
-    //   (x) => x.patientId === props.patientId
-    // );
-    // props.dispatch({ type: "LOAD/INITIAL", payload: { all: matchChart } });
+    const matchChart = props.patientList.find(
+      (x) => x.uuid === props.patientId
+    );
+    patientNotesFetch(props.patientId, props.dispatch);
+    setPatientInfo(matchChart);
   }, [props.patientId]);
   const date = getcurrentDate();
   return (
@@ -36,18 +36,23 @@ export const ChartScreen = (props) => {
       {/* dynamic */}
       <div className="midrow">
         <div className="leftcol">
-          <PatientInfo {...props.patientinfo} />
+          <PatientInfo {...currentPatientInfo} />
           {/* dynamic */}
-          <MedicalNotes patientNotes={props.patientNotes} date={date} />
+          <MedicalNotes
+            patientNotes={props.patientNotes}
+            date={date}
+            patientId={props.patientId}
+            doctor_id={currentPatientInfo.doctor_id}
+          />
           {/* dynamic */}
         </div>
         <div className="rightcol">
           {/* dynamic */}
-          <HivDiagnosis patientHiv={props.patientHiv} />
+          {/* <HivDiagnosis patientHiv={props.patientHiv} /> */}
           {/* dynamic */}
           <div className="bottombox">
-            <GeneralMedication patientMedication={props.patientMedication} />
-            <GeneralDiagnosis patientDiagnosis={props.patientDiagnosis} />
+            {/* <GeneralMedication patientMedication={props.patientMedication} />
+            <GeneralDiagnosis patientDiagnosis={props.patientDiagnosis} /> */}
           </div>
         </div>
       </div>

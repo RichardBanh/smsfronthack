@@ -8,6 +8,7 @@ const initialState = [
     lat: "",
     lon: "",
     phone_number: "",
+    doctor_id: "",
     registration_date: "",
   },
 ];

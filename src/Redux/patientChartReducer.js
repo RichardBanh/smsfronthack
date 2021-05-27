@@ -23,15 +23,15 @@ export const patientChart = (state = initialState, action) => {
   switch (action.type) {
     case "LOAD/INITIAL":
       return { ...action.payload.all };
-    case "UPDATE/CHART":
+    case "ADD/UPDATE/CHART":
       return {
         ...state,
         medicalChart: [
           ...state.medicalChart,
           {
             date: action.payload.date,
-            note: action.payload.note,
-            signed: action.payload.signed,
+            patientNote: action.payload.patientNote,
+            doctor_id: action.payload.doctor_id,
           },
         ],
       };
@@ -70,6 +70,11 @@ export const patientChart = (state = initialState, action) => {
             everyWhen: action.payload.everyWhen,
           },
         ],
+      };
+    case "LOAD/NOTES/ALL":
+      return {
+        ...state,
+        medicalChart: [...action.payload.medicalChart],
       };
     default:
       return state;

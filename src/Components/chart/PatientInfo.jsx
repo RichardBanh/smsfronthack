@@ -43,7 +43,7 @@ export const PatientInfo = (props) => {
             Age: {patientInfo.age}
           </div>
         )}
-        {changeGender ? (
+        {/* {changeGender ? (
           <input
             value={patientInfo.gender}
             onClick={(e) => {
@@ -65,7 +65,7 @@ export const PatientInfo = (props) => {
           >
             Gender: {patientInfo.gender}
           </div>
-        )}
+        )} */}
         {changeWeight ? (
           <input
             value={patientInfo.weight}
@@ -109,21 +109,21 @@ export const PatientInfo = (props) => {
               setChangeH(!changeHeight);
             }}
           >
-            Height: {patientInfo.height}{" "}
+            Height: {patientInfo.height}
           </div>
         )}
 
-        <div>Blood Type: {patientInfo.blood} </div>
+        <div>Blood Type: {patientInfo.blood_type} </div>
         {changeDr ? (
           <input
-            value={patientInfo.dr}
+            value={patientInfo.doctor_id}
             onClick={(e) => {
               e.stopPropagation();
             }}
             onChange={(e) =>
               setPatientInfo({
                 ...patientInfo,
-                dr: e.target.value,
+                doctor_id: e.target.value,
               })
             }
           />
@@ -134,12 +134,12 @@ export const PatientInfo = (props) => {
               setChangeD(!changeDr);
             }}
           >
-            Home Doctor: {patientInfo.dr}{" "}
+            Home Doctor ID: {patientInfo.doctor_id}
           </div>
         )}
       </div>
       <div>
-        <div>Account Creation Date: {patientInfo.accountcreation}</div>
+        <div>Account Creation Date: {patientInfo.registration_date}</div>
       </div>
     </div>
   );

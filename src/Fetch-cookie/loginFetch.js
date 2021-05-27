@@ -2,8 +2,8 @@ import Cookies from "js-cookie";
 import axios from "axios";
 
 const storeCookie = (resdata) => {
-  Cookies.set("jwt", resdata.token);
-  Cookies.set("username", resdata.user.username);
+  Cookies.set("jwt", resdata.token, { expires: 1 / 48 });
+  Cookies.set("username", resdata.user.username, { expires: 1 / 48 });
 };
 export const loginFetch = async (datain, dispatch, type, payload) => {
   const url = "http://127.0.0.1:8000/token-auth/";
